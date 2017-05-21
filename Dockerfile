@@ -1,6 +1,8 @@
 FROM debian
 
-MAINTAINER sirpixel <seigneurpixel@gmail.com>
+LABEL maintainer="seigneurpixel@gmail.com" \
+      version=1.0 \
+      description="Serveur Arma3"
 
 RUN apt-get update && apt-get install -y lib32gcc1 lib32stdc++6 wget redis-server binutils
 
