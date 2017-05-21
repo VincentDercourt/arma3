@@ -1,6 +1,6 @@
 FROM debian
 
-MAINTAINER sirpixel <pixel@rageclic.fr>
+MAINTAINER sirpixel <seigneurpixel@gmail.com>
 
 RUN apt-get update && apt-get install -y lib32gcc1 lib32stdc++6 wget redis-server binutils
 
