@@ -1,35 +1,27 @@
-FROM debian
+FROM debian:latest
 
 LABEL maintainer="pixel@rageclic.fr" \
 	  version=1.0 \
 	  description="Create a server Arma3"
 
-RUN apt-get update && apt-get install -y lib32gcc1 lib32stdc++6 wget unzip
-
-VOLUME /arma3
-
-ENV steamUser \
-    steamPassword="" \
-    loadMapDefault=1
-
-
-RUN useradd -ms /bin/bash arma3
+RUN apt-get update \
+    && dpkg --add-architecture i386 \
+    && apt-get update \
+    && apt-get install -y mailutils postfix curl wget file bzip2 gzip unzip binutils bsdmainutils python util-linux ca-certificates tmux lib32gcc1 libstdc++6 libstdc++6:i386 expect sudo
 
 COPY ./*.* /
 
 RUN chmod 755 /start.sh \
-    && chown -R arma3:arma3 /arma3
+    && sed -i -e 's/\r$//' /start.sh \
+    && useradd -ms /bin/bash arma3server \
+    && echo "arma3server:arma3server" | chpasswd && adduser arma3server sudo
 
-USER arma3
+VOLUME /home/arma3server
 
-WORKDIR /home/arma3
+USER arma3server
 
-RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
-    && tar -xvf steamcmd_linux.tar.gz \
-    && rm -f steamcmd_linux.tar.gz
+WORKDIR /home/arma3server
 
-RUN chmod +x ./steamcmd.sh
-
-EXPOSE 2302 2303 2304 2305 2344 2345 2302/udp 2303/udp 2304/udp 2305/udp 2344/udp 2345/udp
+EXPOSE 2302-2305 2344-2345 2302-2305/udp 2344-2345/udp
 
 CMD ["/start.sh"]
