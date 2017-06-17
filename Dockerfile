@@ -12,7 +12,6 @@ ENV steamUser \
     steamPassword="" \
     loadMapDefault=1
 
-EXPOSE 2302:2305 2344:2345 2302:2305/udp 2344:2345/udp
 
 RUN useradd -ms /bin/bash arma3
 
@@ -30,5 +29,7 @@ RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz 
     && rm -f steamcmd_linux.tar.gz
 
 RUN chmod +x ./steamcmd.sh
+
+EXPOSE 2302 2303 2304 2305 2344 2345 2302/udp 2303/udp 2304/udp 2305/udp 2344/udp 2345/udp
 
 CMD ["/start.sh"]
