@@ -1,6 +1,8 @@
 FROM debian
 
-MAINTAINER sirpixel <pixel@rageclic.fr>
+LABEL maintainer="pixel@rageclic.fr" \
+	  version=1.0 \
+	  description="Create a server Arma3"
 
 RUN apt-get update && apt-get install -y lib32gcc1 lib32stdc++6 wget unzip
 
