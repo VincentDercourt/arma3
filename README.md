@@ -62,7 +62,7 @@ Vous pouvez retrouver la liste complète des commandes et de leur utilité ici
 
 Vous pouvez modifier les informations sur le "port, ip, etc.." ici 
 
-### rustserver
+### arma3server
 >/home/arma3server/arma3server
 
 ### le fichier de config par défaut se trouve dans le répertoire 
