@@ -14,7 +14,8 @@ COPY ./*.* /
 RUN chmod 755 /start.sh \
     && sed -i -e 's/\r$//' /start.sh \
     && useradd -ms /bin/bash arma3server \
-    && echo "arma3server:arma3server" | chpasswd && adduser arma3server sudo
+    && echo "arma3server:arma3server" | chpasswd && adduser arma3server sudo \
+    && usermod -G tty arma3server
     
 RUN sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
