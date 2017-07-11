@@ -17,8 +17,6 @@ RUN chmod 755 /start.sh \
     && echo "arma3server:arma3server" | chpasswd && adduser arma3server sudo \
     && usermod -G tty arma3server
     
-RUN sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen && \
-    locale-gen
 ENV LANG fr_FR.UTF-8
 ENV LANGUAGE fr_FR:fr
 ENV LC_ALL fr_FR.UTF-8
