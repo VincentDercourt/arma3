@@ -91,13 +91,13 @@ https://github.com/VincentDercourt/arma3/blob/master/basic.cfg
 
 ### INFORMATION
 
-Vous pouvez nous retrouver sur le forum de la communauté RAGECLIC 
+Vous pouvez nous retrouver sur le forum de la communauté HappyGuard 
 
-[https://www.rageclic.fr/](https://www.rageclic.fr/)
+[https://www.happyguard.fr/](https://www.happyguard.fr/)
 
 ou sur le teamspeak 
 
-[ts3.rageclic.fr](ts3server://ts3.rageclic.fr)
+[ts.happyguard.fr](ts3server://ts.happyguard.fr)
 
 
 ### Attention !!!!
